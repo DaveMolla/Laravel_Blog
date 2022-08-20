@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <a href="/posts" class="btn btn-default bg-light">Go Back</a>
     <h1>{{$posts->title}}</h1>
     <img style="width:100%" src="/storage/cover_images/{{$posts->cover_image}}" alt="">
@@ -40,4 +41,5 @@
         @endif
         <br><br>
         @comments(['model' => $posts])
+    </div>
 @endsection
