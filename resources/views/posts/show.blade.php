@@ -4,7 +4,7 @@
 <div class="container">
 <a href="/posts" class="btn btn-default bg-light">Go Back</a>
     <h1>{{$posts->title}}</h1>
-    <img style="width:100%" src="/cover_image/{{$posts->cover_image}}" alt="">
+    <img style="width:100%" src="asset(“/cover_image/{(Sposts-›cover_image}}”)” alt="">
     <br><br>
 
     <div>
