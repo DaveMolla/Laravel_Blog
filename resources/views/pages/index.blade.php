@@ -10,16 +10,17 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
     background-size: cover;
     height: 500px;
     width:100%;
-    margin-top:-10px;">  
-    <div style="margin-top: 80px">  
+    margin-top:-10px;">
+    <div style="margin-top: 80px">
     <h1>Welcome To Laravel Blog App</h1>
         <p>This is the laravel Blog Application created by Dave</p>
+        <a href="admin" class="text-decoration-none text-warning">admin</a>
         <p>Go to <a href="/posts" class="text-decoration-none text-warning">Blog</a> page to see latest posts</p>
         @if (Auth::guest())
         <p>
             <a href="/login" class="btn btn-primary btn-lg" role="button">Login</a>
             <a href="/register" class="btn btn-success btn-lg" role="button">Register</a>
-        </p>            
+        </p>
         @endif
     </div>
     </div>
@@ -33,16 +34,16 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
             <h2 class="text-lg text-bold ">
                 Struggling to be a better web developer?
             </h2>
-            
+
             <h5 class="text-secondary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.minima itaque magni error est et 
-                
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.minima itaque magni error est et
+
             </h5>
-    
+
             <h5 class="text-secondary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. minima itaque magni error est et Quaerat sapiente tenetur deleniti fugit voluptatem, 
-            
-    
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. minima itaque magni error est et Quaerat sapiente tenetur deleniti fugit voluptatem,
+
+
             </h5>
                 <a href="/posts" class="uppercase text-sm btn btn-primary">
                     Find Out More
@@ -59,15 +60,15 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
             <h3 class="py-1">
                 Ux design
             </h3>
-            
+
             <h3 class="font-15 py-1">
                 Project managment
             </h3>
-            
+
             <h3 class="py-1">
                 Digital strategy
             </h3>
-            
+
             <h3 class="py-1">
                 Backend development
             </h3><br>
@@ -82,5 +83,5 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
         </div>
         <!-- Copyright -->
       </footer>
-    
+
 @endsection
