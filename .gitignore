@@ -16,3 +16,4 @@ yarn-error.log
 /public/build
 /public/dist
 /public/plugins
+/public/admintemplate
