@@ -5,8 +5,13 @@
         <div class="avatar"><img src="admintemplate/img/avatar-6.jpg" alt="..."
                 class="img-fluid rounded-circle"></div>
         <div class="title">
-            <h1 class="h5">Mark Stephen</h1>
-            <p>Web Designer</p>
+            <h1 class="h5"> {{ Auth::user()->name }}</h1>
+            <h1 class="h5">
+                @if (Auth::user()->is_admin)
+                    <p>Admin</p>
+                @endif
+            </h1>
+            {{-- <p>Web Designer</p> --}}
         </div>
     </div>
     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>

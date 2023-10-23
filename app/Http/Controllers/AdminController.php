@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,9 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        $user = auth()->user();
 
-        return view('home')->with('posts', $user->posts);
+        $usersCount = User::count();
+
+        return view('admin.admin')->with([
+            'posts' => $user->posts,
+            'usersCount' => $usersCount,
+        ]);
     }
 }
