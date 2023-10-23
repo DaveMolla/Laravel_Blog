@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -17,6 +17,7 @@ class PostsController extends Controller
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +25,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+
         return view('posts.index')->with('posts', $posts);
         // return view('posts.index')->with('posts', Post::orderBy('created_at','desc')->paginate(10));
     }
@@ -42,21 +44,19 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'=>'required',
-            'body'=>'required',
+            'title' => 'required',
+            'body' => 'required',
             'cover_image' => 'image|nullable|mimes:jpg,png,jpeg|max:5048',
 
-        ]); 
+        ]);
         //Handle File Upload
 
-
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             //Get filename with the extension
             $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
             //Get just filename
@@ -64,9 +64,9 @@ class PostsController extends Controller
             //Get exe
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             //file name to store
-            $fileNameToStore = $filename. '_'.time().'.'.$extension;
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload Image
-           $path = $request->cover_image->move(public_path('cover_image'), $fileNameToStore);        
+            $path = $request->cover_image->move(public_path('cover_image'), $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -79,7 +79,7 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
         $post->save();
 
-        return redirect('/posts')->with('success','Post Created');
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
@@ -91,7 +91,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show')->with('posts',$post);
+
+        return view('posts.show')->with('posts', $post);
     }
 
     /**
@@ -105,30 +106,29 @@ class PostsController extends Controller
         $post = Post::find($id);
 
         //Check for correct user
-        if(auth()->user()->id !== $post->user_id){
-            return redirect('/posts')->with('error','Unauthorized Page');
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
-        return view('posts.edit')->with('posts',$post);
+        return view('posts.edit')->with('posts', $post);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title'=>'required',
-            'body'=>'required',
+            'title' => 'required',
+            'body' => 'required',
 
-        ]); 
+        ]);
         //Handle File Upload
 
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             //Get filename with the extension
             $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
             //Get just filename
@@ -136,20 +136,20 @@ class PostsController extends Controller
             //Get exe
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             //file name to store
-            $fileNameToStore = $filename. '_'.time().'.'.$extension;
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload Image
-            $path = $request->cover_image->move(public_path('cover_image'), $fileNameToStore);        
+            $path = $request->cover_image->move(public_path('cover_image'), $fileNameToStore);
         }
 
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             $post->cover_image = $fileNameToStore;
         }
         $post->save();
 
-        return redirect('/posts')->with('success','Post Updated');
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
@@ -160,16 +160,17 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post= Post::find($id);
-        if(auth()->user()->id !== $post->user_id){
-            return redirect('/posts')->with('error','Unauthorized Page');
+        $post = Post::find($id);
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized Page');
         }
-        if($post->cover_image != 'noimage.jpg'){
+        if ($post->cover_image != 'noimage.jpg') {
             //Delete Image
             Storage::delete('/cover_image'.$post->cover_image);
         }
 
         $post->delete();
-        return redirect('/posts')->with('success','Post Deleted');
+
+        return redirect('/posts')->with('success', 'Post Deleted');
     }
 }

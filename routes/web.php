@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\PostLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,21 +19,26 @@ use App\Http\Controllers\PostLikeController;
 |
 */
 
-Route::get('/', [PagesController::class,'index']);
+Route::get('/', [PagesController::class, 'index']);
 
-Route::get('/about', [PagesController::class,'about']);
-Route::get('/services', [PagesController::class,'services']);
+Route::get('/about', [PagesController::class, 'about']);
+Route::get('/services', [PagesController::class, 'services']);
 
-Route::resource('posts',PostsController::class);
+Route::resource('posts', PostsController::class);
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    });
+});
 
-
+Route::post('login', 'LoginController@login')->name('login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
-Route::post('/posts/{post}/likes', [PostLikeController::class,'store'])->name('posts.likes');
-Route::delete('/posts/{post}/likes', [PostLikeController::class,'destroy'])->name('posts.likes');
+Route::get('/home', [HomeController::class, 'index']);
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
+Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 Route::view('/admin', 'admin/admin');
-
-
+Route::get('/admin', [AdminController::class, 'index'])->name('admin'); // Admin page
+Route::get('/home', [HomeController::class, 'index'])->name('home'); // Home page

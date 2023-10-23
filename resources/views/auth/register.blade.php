@@ -38,6 +38,16 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4 col-md-4 col-12 form-group">
+                                <label class="form-check-label checkbox-inline" for="is_admin_checkbox">Is Admin</label>
+                                <input type="hidden" name="is_admin" value="0">
+                                <div class="form-check">
+                                    <input type="checkbox" name="is_admin" value="1" id="is_admin_checkbox" class="form-check-input">
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
