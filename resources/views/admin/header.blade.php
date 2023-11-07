@@ -14,7 +14,7 @@
       <div class="container-fluid d-flex align-items-center justify-content-between">
         <div class="navbar-header">
           <!-- Navbar Header--><a href="admin" class="navbar-brand">
-            <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Laravel</strong><strong>Blog</strong></div>
+            <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Admin</strong> <strong>Dashboard</strong></div>
             <div class="brand-text brand-sm"><strong class="text-primary">L</strong><strong>B</strong></div></a>
           <!-- Sidebar Toggle Btn-->
           <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
@@ -135,7 +135,7 @@
             <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="admin/img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="admin/img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
           </div>
           <!-- Log out               -->
-          <div class="list-inline-item logout">                   <a id="logout" href="{{route('login')}}" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+          <div class="list-inline-item logout">                   <a id="logout" href="{{route('login')}}" class="nav-link">Post Dashboard <i class="icon-logout"></i></a></div>
         </div>
       </div>
     </nav>

@@ -27,18 +27,26 @@
                         </li>
                     @endif
 
-                    @if (Route::has('register'))
+                    {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
-                    @endif
+                    @endif --}}
                 @else
+                    @if (auth()->user() && auth()->user()->is_admin)
+                        <p>
+                            <a href="/register" class="btn btn-success btn-lg" role="button">Register a User</a>
+                        </p>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @if (auth()->user() && auth()->user()->is_admin)
+                                <a href="admin" class="dropdown-item">Admin Dashboard</a>
+                            @endif
                             <a class="dropdown-item" href="/home">Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -56,6 +64,6 @@
         </div>
     </div>
 </nav>
-<div style="margin-bottom: 60px">
+<div style="margin-bottom: 95px">
 
 </div>
