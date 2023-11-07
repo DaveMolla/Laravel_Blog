@@ -14,7 +14,7 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
     <div style="margin-top: 80px">
     <h1>Welcome To Laravel Blog App</h1>
         <p>This is the laravel Blog Application created by Dave</p>
-        <a href="admin" class="text-decoration-none text-warning">admin</a>
+        {{-- <a href="admin" class="text-decoration-none text-warning">admin</a> --}}
         <p>Go to <a href="/posts" class="text-decoration-none text-warning">Blog</a> page to see latest posts</p>
         @if (auth()->user() && auth()->user()->is_admin)
         <p>
