@@ -14,12 +14,12 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
     <div style="margin-top: 80px">
     <h1>Welcome To Laravel Blog App</h1>
         <p>This is the laravel Blog Application created by Dave</p>
-        <a href="admin" class="text-decoration-none text-warning">admin</a>
+        {{-- <a href="admin" class="text-decoration-none text-warning">admin</a> --}}
         <p>Go to <a href="/posts" class="text-decoration-none text-warning">Blog</a> page to see latest posts</p>
         @if (auth()->user() && auth()->user()->is_admin)
         <p>
-            <a href="/login" class="btn btn-primary btn-lg" role="button">Login</a>
-            <a href="/register" class="btn btn-success btn-lg" role="button">Register</a>
+            {{-- <a href="/login" class="btn btn-primary btn-lg" role="button">Login</a> --}}
+            <a href="/register" class="btn btn-success btn-lg" role="button">Register a User</a>
         </p>
         @endif
     </div>
@@ -78,8 +78,8 @@ style="background-image: url('https://cdn.pixabay.com/photo/2017/07/31/23/45/pen
       style="width:100%">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 DaveDir:
-          <a class="text-dark" href="dailyposts">etdailyposts</a>
+          © 2023 DaveM:
+          <a class="text-dark" href="#">etdailyposts</a>
         </div>
         <!-- Copyright -->
       </footer>

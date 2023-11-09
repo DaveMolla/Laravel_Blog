@@ -14,6 +14,12 @@
                 <div class="container-fluid">
                     <h2 class="h5 no-margin-bottom">Dashboard</h2>
                 </div>
+                <div class="container-fluid">
+                    <a href="{{ route('admin.users') }}">Users</a>
+                </div>
+                <div class="container-fluid">
+                    <a href="{{ route('admin.show-admins') }}">Admins</a>
+                </div>
             </div>
             <section class="no-padding-top no-padding-bottom">
                 <div class="container-fluid">
@@ -22,16 +28,15 @@
                             <div class="statistic-block block">
                                 <div class="progress-details d-flex align-items-end justify-content-between">
                                     <div class="title">
-                                        <div class="icon"><i class="icon-user-1"></i></div><strong>New
-                                            Clients</strong>
+                                        <div class="icon"><i class="icon-user-1"></i></div><strong>Total Users</strong>
                                     </div>
                                     <div class="number dashtext-1">
                                         {{-- @if (Auth::user()->is_admin) --}}
-                                            <h1>{{ $usersCount }}</h1>
+                                            <h1>{{ $totalUsers }}</h1>
                                         {{-- @endif --}}
                                     </div>
-
                                 </div>
+
                                 <div class="progress progress-template">
                                     <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0"
                                         aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
@@ -42,10 +47,11 @@
                             <div class="statistic-block block">
                                 <div class="progress-details d-flex align-items-end justify-content-between">
                                     <div class="title">
-                                        <div class="icon"><i class="icon-contract"></i></div><strong>New
-                                            Projects</strong>
+                                        <div class="icon"><i class="icon-contract"></i></div><strong>Total Posts</strong>
                                     </div>
-                                    <div class="number dashtext-2">375</div>
+                                    <div class="number dashtext-1">
+                                            <h1>{{ $totalPosts }}</h1>
+                                    </div>
                                 </div>
                                 <div class="progress progress-template">
                                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
@@ -57,10 +63,10 @@
                             <div class="statistic-block block">
                                 <div class="progress-details d-flex align-items-end justify-content-between">
                                     <div class="title">
-                                        <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>New
-                                            Invoices</strong>
+                                        <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>
+                                            Posts Today</strong>
                                     </div>
-                                    <div class="number dashtext-3">140</div>
+                                    <div class="number dashtext-3">{{$todaysPosts}}</div>
                                 </div>
                                 <div class="progress progress-template">
                                     <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0"
@@ -72,10 +78,9 @@
                             <div class="statistic-block block">
                                 <div class="progress-details d-flex align-items-end justify-content-between">
                                     <div class="title">
-                                        <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All
-                                            Projects</strong>
+                                        <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Users last 7 days</strong>
                                     </div>
-                                    <div class="number dashtext-4">41</div>
+                                    <div class="number dashtext-4">{{$newUsers}}</div>
                                 </div>
                                 <div class="progress progress-template">
                                     <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0"
@@ -105,7 +110,7 @@
                     </div>
                 </div>
             </section>
-            <section class="no-padding-bottom">
+            {{-- <section class="no-padding-bottom">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6">
@@ -164,8 +169,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="no-padding-bottom">
+            </section> --}}
+            {{-- <section class="no-padding-bottom">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4">
@@ -281,8 +286,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="margin-bottom-sm">
+            </section> --}}
+            {{-- <section class="margin-bottom-sm">
                 <div class="container-fluid">
                     <div class="row d-flex align-items-stretch">
                         <div class="col-lg-4">
@@ -341,8 +346,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="no-padding-bottom">
+            </section> --}}
+            {{-- <section class="no-padding-bottom">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6">
@@ -436,8 +441,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section>
+            </section> --}}
+            {{-- <section>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4">
@@ -475,8 +480,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <footer class="footer">
+            </section> --}}
+            {{-- <footer class="footer">
                 <div class="footer__block block no-margin-bottom">
                     <div class="container-fluid text-center">
                         <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
@@ -484,7 +489,7 @@
                                 href="https://templateshub.net">Templates Hub</a>.</p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
         </div>
     </div>
     <!-- JavaScript files-->

@@ -34,6 +34,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = ['created_at_formatted'];
+
     /**
      * The attributes that should be cast.
      *
@@ -44,9 +46,12 @@ class User extends Authenticatable
         'is_admin' => 'boolean',
     ];
 
+    public function getCreatedAtFormattedAttribute(){
+        return $this->created_at->format('M, d, Y');
+    }
     public function posts()
     {
-        return $this->hasMany('App\Models\Post');
+        return $this->hasMany(Post::class);
     }
 
     public function likes()
