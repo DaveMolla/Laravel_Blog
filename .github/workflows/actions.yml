@@ -48,7 +48,7 @@ jobs:
           # username: laravel@laravel.dirtechnology.com
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}              
-          server-dir: /home/dirtechnologycom/laravel.dirtechnology.com/laravel
+          server-dir: /home/dirtechnologycom/laravel.dirtechnology.com/laravel/
 
 
 
