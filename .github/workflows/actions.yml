@@ -52,7 +52,7 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/master" ]; then
             # Deployment for master branch
-            cd laravel.dirtechnology.com/
+            cd /home/dirtechnologycom/laravel.dirtechnology.com/Laravel_Blog/
             git checkout master
             git pull origin master
           fi
