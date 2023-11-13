@@ -52,14 +52,9 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/master" ]; then
             # Deployment for master branch
-            cd /var/www/Laravel_Blog
+            cd laravel.dirtechnology.com/
             git checkout master
             git pull origin master
-          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
-            # Deployment for stage branch
-            cd /var/www/stage.Laravel_Blog.com
-            git checkout stage
-            git pull origin stage
           fi
           composer install --no-interaction
           php artisan migrate --step
