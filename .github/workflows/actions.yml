@@ -52,10 +52,10 @@ jobs:
       - name: Run Custom Deployment Script
         run: |
           composer install
-          php artisan migrate --step --force
-          php artisan optimize:clear
-          php artisan optimize
-          php artisan view:cache
+          # php artisan migrate --force
+          # php artisan optimize:clear
+          # php artisan optimize
+          # php artisan view:cache
 
 
 
